@@ -1,0 +1,22 @@
+head section
+
+Integer getNumTiposCafe()
+Integer getNumVariedades()
+Integer getCantidadCafe(Integer j)
+Double getBeneficioVentaKg(Integer i)
+Double getPorcentajeCafeKg(Integer i, Integer j)
+
+Integer n= getNumTiposCafe()
+Integer m= getNumVariedades()
+
+goal section
+
+max sum(getBeneficioVentaKg(i) x[i], i in 0 .. m)
+
+constraints section
+
+sum(getPorcentajeCafeKg(i,j) x[i], i in 0 .. m) <= getCantidadCafe(j), j in 0 .. n
+
+int
+
+x[i], i in 0 .. m

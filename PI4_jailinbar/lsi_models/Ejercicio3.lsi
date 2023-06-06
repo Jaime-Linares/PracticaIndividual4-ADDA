@@ -1,0 +1,35 @@
+head section
+
+Integer getNumInvestigadores()
+Integer getNumEspecialidades()
+Integer getNumTrabajos()
+Integer getInvestigadorTieneEspecialidad(Integer i, Integer k)
+Integer getDiasDisponiblesInvestigador(Integer i)
+Integer getDiasNecesariosTrabajosEspecialidad(Integer j, Integer k)
+Integer getCalidadTrabajo(Integer j)
+
+Integer n= getNumInvestigadores()
+Integer e= getNumEspecialidades()
+Integer m= getNumTrabajos()
+
+goal section
+
+max sum(getCalidadTrabajo(j) y[j], j in 0 .. m)
+
+constraints section
+
+sum(x[i,j], j in 0 .. m) <= getDiasDisponiblesInvestigador(i), i in 0 .. n
+sum(getInvestigadorTieneEspecialidad(i,k) x[i,j], i in 0 .. n) - 
+	getDiasNecesariosTrabajosEspecialidad(j,k) y[j] = 0, j in 0 .. m, k in 0 .. e
+	
+bounds section
+
+x[i,j] <= getDiasDisponiblesInvestigador(i), i in 0 .. n, j in 0 .. m
+
+int
+
+x[i,j], i in 0 .. n, j in 0 .. m
+
+bin 
+
+y[j], j in 0 .. m

@@ -1,0 +1,19 @@
+head section
+
+Integer getNumAlumnos()
+Integer getNumGrupos()
+Integer getTamGrupo()
+
+Integer n= getNumAlumnos()
+Integer m= getNumGrupos()
+Integer w= getTamGrupo()
+
+goal section
+max sum(getAfinidad(i,j) x[i,j], i in 0 .. n, j in 0 .. m)
+
+constraints section
+sum(x[i,j], j in 0 .. m)=1, i in 0 .. n
+sum(x[i,j], i in 0 .. n)=w, j in 0 .. m
+sum(x[i,j], j in 0 .. m | getAfinidad(i,j)=0)=0, i in 0 .. n
+
+bin x[i,j], i in 0 .. n, j in 0 .. m
